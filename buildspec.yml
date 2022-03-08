@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      node: 14
+
+  pre_build:
+    commands:
+      - npm install -g serverless
+      - npm install
+
+  build:
+    commands:
+      - sls deploy --stage $STAGE
+
+  post_build:
+    commands:
+      - echo Deployment completed on `date`
