@@ -1,15 +1,18 @@
-'use strict';
+"use strict";
+
+const getUnixTime = require("date-fns/getUnixTime");
 
 module.exports.hello = async (event) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: 'Go Serverless v3.0! Your function executed successfully!',
-        input: event,
-      },
-      null,
-      2
-    ),
-  };
+	return {
+		statusCode: 200,
+		body: JSON.stringify(
+			{
+				message: "From Serverless CI/CD",
+				input: event,
+				timestamp: getUnixTime(new Date()),
+			},
+			null,
+			2
+		),
+	};
 };
